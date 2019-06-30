@@ -23,5 +23,10 @@ for row in range(2, sheet.max_row + 1):
     county_data[state][county]['tracts'] += 1
     # この人口調査標準地域の人口だけ郡の人口を増やす
     county_data[state][county]['pop'] += int(pop)
-    
+
 #TODO: 新しいテキストファイルを開き、county_dataの内容を書き込む
+print('結果を書き込み中...')
+result_file = open('census2010.py', 'w')
+result_file.write('all_data = ' + pprint.pformat(county_data))
+result_file.close()
+print('完了')
